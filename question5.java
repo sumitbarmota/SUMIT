@@ -1,15 +1,21 @@
-//Question 4:Fibonacci
-        //F(n)=F(n−1)+F(n−2)
+//Question 5 :TO calculate max and min of an array. 
 
-public class Fibonacci {
-    static int fibonacci(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-        return fibonacci(n - 1) + fibonacci(n - 2);
+
+public class ArrayMaxMin {
+    static int findMax(int[] arr, int n) {
+        if (n == 1) return arr[0];
+        return Math.max(arr[n - 1], findMax(arr, n - 1));
+    }
+
+    static int findMin(int[] arr, int n) {
+        if (n == 1) return arr[0];
+        return Math.min(arr[n - 1], findMin(arr, n - 1));
     }
 
     public static void main(String[] args) {
-        int n = 5;
-        System.out.println("Fibonacci(" + n + ") = " + fibonacci(n));
+        int[] arr = {3, 1, 9, 2, 7};
+        int n = arr.length;
+        System.out.println("Max element = " + findMax(arr, n));
+        System.out.println("Min element = " + findMin(arr, n));
     }
 }
